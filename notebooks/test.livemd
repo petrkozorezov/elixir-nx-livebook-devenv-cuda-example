@@ -1,0 +1,23 @@
+# Test notebook
+
+```elixir
+Mix.install(
+  [
+    {:nx, "~> 0.10"},
+    {:exla, "~> 0.10"},
+  ],
+  config: [
+    nx: [
+      default_backend: EXLA.Backend,
+      default_defn_options: [compiler: EXLA]
+    ],
+    exla: [clients: [cuda: [platform: :cuda, preallocate: false]]],
+  ]
+)
+```
+
+## Section
+
+```elixir
+Nx.iota({2, 2})
+```
